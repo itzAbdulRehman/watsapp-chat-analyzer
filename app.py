@@ -93,11 +93,11 @@ if uploaded_file is not None:
 
 
 
-          st.title('Word Cloud')
-          df_wc = helper.word_cloud(seleted_user, df)
-          fig, ax = plt.subplots()
-          ax.imshow(df_wc)
-          st.pyplot(fig)
+          # st.title('Word Cloud')
+          # df_wc = helper.word_cloud(seleted_user, df)
+          # fig, ax = plt.subplots()
+          # ax.imshow(df_wc)
+          # st.pyplot(fig)
 
           st.title('Most Repeated Words')
           most_repeted_words = helper.most_repeated_words(seleted_user,df)
@@ -115,8 +115,8 @@ if uploaded_file is not None:
                st.header('Most Repeated')
                fig, ax = plt.subplots()
                emoji_head=emoji.head(5)
-               fig = px.pie(emoji_head, values='counter', names='emoji',color_discrete_sequence=px.colors.sequential.Teal_r,height=409,width=500)
-               st.plotly_chart(fig,use_container_width=True)
+               fig = px.pie(emoji_head, values='counter', names='emoji',color_discrete_sequence=px.colors.sequential.Teal_r,height=350,width=350)
+               st.plotly_chart(fig)
 
 
 else:
