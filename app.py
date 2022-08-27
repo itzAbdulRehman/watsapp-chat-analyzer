@@ -11,8 +11,8 @@ import plotly.graph_objects as go
 
 
 
-st.sidebar.title("Whatsapp Chat Analyzer")
-uploaded_file = st.sidebar.file_uploader("Choose a file")
+st.title("Whatsapp Chat Analyzer")
+uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
      # To read file as bytes:\
      bytes_data = uploaded_file.getvalue()
@@ -23,10 +23,16 @@ if uploaded_file is not None:
      user_list = df['user'].unique().tolist()
      user_list.sort()
      user_list.insert(0,'Overall')
-     seleted_user = st.sidebar.selectbox('Show Analysis wrt', user_list)
+     col1, col2 = st.columns(2)
+     with col1:
+          seleted_user = st.selectbox('Show Analysis wrt', user_list)
 
-     st.success('Your chat uploaded successfully, Click on Show Analysis')
-     if st.sidebar.button("Show Analysis"):
+     with col2:
+          st.caption(' ')
+          st.success("Upload Successfully, Click ongit initgit init Show Analysis")
+
+
+     if st.button("Show Analysis"):
           st.title('Top Statistics')
           # st.title('--------------------------------------------')
           col1, col2, col3, col4 = st.columns(4)
@@ -93,11 +99,11 @@ if uploaded_file is not None:
 
 
 
-          # st.title('Word Cloud')
-          # df_wc = helper.word_cloud(seleted_user, df)
-          # fig, ax = plt.subplots()
-          # ax.imshow(df_wc)
-          # st.pyplot(fig)
+          st.title('Word Cloud')
+          df_wc = helper.word_cloud(seleted_user, df)
+          fig, ax = plt.subplots()
+          ax.imshow(df_wc)
+          st.pyplot(fig)
 
           st.title('Most Repeated Words')
           most_repeted_words = helper.most_repeated_words(seleted_user,df)
@@ -125,6 +131,17 @@ else:
      st.caption("Your Exported chat must be WITHOUT MEDIA")
      st.caption('Download or save your chat file and upload here to see the Magic!')
      st.image("https://fs.npstatic.com/userfiles/7715851/image/NextPit-Export-WhatsApp-Chat-1-w782.png")
+
+
+
+
+
+
+
+
+
+
+
 
 
 
