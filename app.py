@@ -29,7 +29,7 @@ if uploaded_file is not None:
 
      with col2:
           st.caption(' ')
-          st.success("Upload Successfully, Click ongit initgit init Show Analysis")
+          st.success("Upload Successfully, Click on Show Analysis")
 
 
      if st.button("Show Analysis"):
