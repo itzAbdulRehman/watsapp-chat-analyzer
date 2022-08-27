@@ -44,7 +44,7 @@ def word_cloud(selected_user,df):
     temp = df[df['message'] != '<Media omitted>\n']
     temp_df = temp[temp['user'] != 'group_notification']
 
-    f = open('englishST.txt', 'r', encoding='utf=8')
+    f = open('cm.txt', 'r', encoding='utf=8')
     cm = f.read()
 
     def remove_cm(message):
